@@ -112,7 +112,8 @@ No automated CI/CD pipelines are currently configured. Manual validation steps:
 
 2. **Validate Jupyter notebook** (if modified):
    ```bash
-   jupyter nbconvert --execute --to notebook npm_tutorial_golden_girls.ipynb
+   # Execute notebook and save to a validation file (preserves original)
+   jupyter nbconvert --execute --to notebook npm_tutorial_golden_girls.ipynb --output npm_tutorial_golden_girls_validated.ipynb
    ```
    Ensure cells execute without errors (API calls may be commented out).
    Alternatively, launch the notebook interactively and run cells manually:
