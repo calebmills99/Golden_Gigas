@@ -57,7 +57,8 @@ Find and uncomment these cells:
 ```python
 generate_stability_image(
     "Dorothy confused at laptop",
-    "images/dorothy.png"
+    "images/dorothy.png",
+    aspect_ratio="16:9"  # Optional: control image dimensions
 )
 ```
 
@@ -66,6 +67,8 @@ generate_stability_image(
 generate_stability_image(
     "Dorothy confused at laptop",
     "images/dorothy.png",
+    aspect_ratio="16:9",  # Options: "1:1", "16:9", "9:16", "4:5", etc.
+    model="sd3.5-large",   # Options: "sd3.5-large", "sd3.5-large-turbo", "sd3.5-medium"
     refine_prompt=True,
     context="Educational comic about npm. Dorothy is the teacher."
 )
@@ -113,15 +116,17 @@ All example cells in the notebook now show two options:
 ```python
 # generate_stability_image(
 #     "Dorothy at kitchen table",
-#     "images/dorothy.png"
+#     "images/dorothy.png",
+#     aspect_ratio="16:9"
 # )
 ```
 
-**Option 2: With AI-vision refinement**
+**Option 2: With AI-vision refinement (RECOMMENDED)**
 ```python
 # generate_stability_image(
 #     "Dorothy at kitchen table",
 #     "images/dorothy_refined.png",
+#     aspect_ratio="16:9",
 #     refine_prompt=True,
 #     context="Educational comic. Dorothy teaching npm."
 # )
@@ -134,6 +139,43 @@ All example cells in the notebook now show two options:
 3. **Be specific in context** - "Dorothy frustrated" vs "Dorothy happy"
 4. **Compare results** - Generate with and without refinement to see the difference
 5. **Iterate if needed** - Adjust your context for even better results
+
+## Stability AI API Parameters
+
+The `generate_stability_image` function now supports all parameters from the official Stability AI v2beta API:
+
+### Required Parameters:
+- `prompt` (str): What you wish to see in the output image
+- `out_path` (str): Where to save the generated image
+
+### Optional Parameters:
+- `aspect_ratio` (str): Image dimensions. Options: "1:1", "16:9", "9:16", "4:5", "5:4", "3:2", "2:3", "21:9", "9:21"
+  - Default: "1:1"
+- `model` (str): SD3.5 model to use. Options: "sd3.5-large", "sd3.5-large-turbo", "sd3.5-medium"
+  - Default: "sd3.5-large"
+- `style_preset` (str): Art style. Options: "enhance", "anime", "photographic", "digital-art", "comic-book"
+  - Default: "comic-book"
+- `negative_prompt` (str): What you DON'T want in the image
+- `cfg_scale` (float): Prompt adherence strength (0-10). Higher = closer to prompt
+- `seed` (int): For reproducible generation
+- `output_format` (str): "png", "jpeg", or "webp". Default: "png"
+- `refine_prompt` (bool): Enable AI-vision refinement. Default: False
+- `context` (str): Context for AI-vision refinement
+
+### Example with Advanced Parameters:
+```python
+generate_stability_image(
+    "Dorothy teaching npm at kitchen table",
+    "images/dorothy_teaching.png",
+    aspect_ratio="16:9",
+    model="sd3.5-large-turbo",  # Faster generation
+    style_preset="comic-book",
+    negative_prompt="blurry, low quality, distorted",
+    cfg_scale=7.0,  # Strong adherence to prompt
+    refine_prompt=True,
+    context="Educational Golden Girls comic, warm lighting"
+)
+```
 
 ## Character Context Examples
 

@@ -224,14 +224,18 @@ export STABILITY_API_KEY='your-stability-key'
 generate_stability_image(
     "Dorothy at laptop",
     "images/dorothy.png",
-    refine_prompt=True,  # ← The magic flag!
+    aspect_ratio="16:9",     # Control image dimensions
+    model="sd3.5-large",     # Choose SD3.5 model
+    refine_prompt=True,      # ← The magic flag!
     context="Educational comic about npm"
 )
 ```
 
 **Pro Tips:**
 - 🎯 Always use `refine_prompt=True` for best results
-- 📝 Add context to help the AI understand your scene better
+- 📐 Use `aspect_ratio` to control image dimensions (16:9 for wide, 9:16 for tall, 1:1 for square)
+- 🚀 Try `model="sd3.5-large-turbo"` for faster generation
+- 📝 Add `negative_prompt` to exclude unwanted elements
 - 🎨 Compare refined vs. non-refined outputs - you'll see the difference!
 - 💡 The refinement adds ~$0.01-0.03 per image but the quality boost is worth it
 
