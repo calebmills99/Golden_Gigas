@@ -20,7 +20,9 @@ def mock_refine_prompt_with_ai_vision(original_prompt, context=""):
         refined_prompt += ", professional lighting"
     
     # Add composition details
-    if "Golden Girls" in context or "Dorothy" in original_prompt or "Sophia" in original_prompt:
+    if ("Golden Girls" in context or "Dorothy" in original_prompt or 
+        "Sophia" in original_prompt or "Blanche" in original_prompt or 
+        "Rose" in original_prompt):
         refined_prompt += ", detailed character rendering"
     
     # Add quality keywords
