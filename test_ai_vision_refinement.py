@@ -48,8 +48,6 @@ def mock_generate_stability_image(prompt, out_path, *, width=1024, height=1024,
     Mock version of generate_stability_image for testing.
     Validates the refinement integration without API calls.
     """
-    final_prompt = prompt
-    
     if refine_prompt:
         final_prompt = mock_refine_prompt_with_ai_vision(prompt, context)
         print(f"🎨 Prompt Refinement Complete!")
@@ -90,7 +88,7 @@ def test_context_aware_refinement():
     context = "Educational comic about npm. Dorothy is confused but determined."
     refined = mock_refine_prompt_with_ai_vision(original, context)
     
-    assert "confused" in refined, "Should incorporate context"
+    assert "expressive confused facial expression" in refined, "Should add full confused expression enhancement"
     assert "teaching" in refined, "Should recognize educational context"
     
     print("✅ Context-aware refinement test passed!")
