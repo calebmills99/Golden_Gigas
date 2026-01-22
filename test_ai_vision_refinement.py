@@ -64,9 +64,9 @@ def mock_generate_stability_image(prompt, out_path, *, aspect_ratio="1:1",
     print(f"   Style: {style_preset}, Format: {output_format}")
     if negative_prompt:
         print(f"   Negative prompt: {negative_prompt}")
-    if cfg_scale:
+    if cfg_scale is not None:
         print(f"   CFG Scale: {cfg_scale}")
-    if seed:
+    if seed is not None:
         print(f"   Seed: {seed}")
     
     return out_path
