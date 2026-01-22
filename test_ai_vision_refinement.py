@@ -20,10 +20,14 @@ def mock_refine_prompt_with_ai_vision(original_prompt, context=""):
         refined_prompt += ", professional lighting"
     
     # Add composition details
-    if ("Golden Girls" in context or "Dorothy" in original_prompt or 
-        "Sophia" in original_prompt or "Blanche" in original_prompt or 
-        "Rose" in original_prompt):
-        refined_prompt += ", detailed character rendering"
+    character_names = ("Dorothy", "Sophia", "Blanche", "Rose")
+    if context:
+        has_golden_girls_context = "Golden Girls" in context
+        has_shared_character = any(
+            name in original_prompt and name in context for name in character_names
+        )
+        if has_golden_girls_context or has_shared_character:
+            refined_prompt += ", detailed character rendering"
     
     # Add quality keywords
     refined_prompt += ", vibrant colors, 4k quality"
