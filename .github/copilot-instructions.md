@@ -2,7 +2,9 @@
 
 ## Repository Overview
 
-This repository contains **Golden Gigas** - an educational project that teaches npm and package management through Golden Girls-themed tutorials. The project uses humor, storytelling, and beloved characters to make technical education memorable and engaging.
+This repository contains **Golden Gigas** - an educational project that teaches npm concepts through Golden Girls-themed tutorials. The project uses humor, storytelling, and beloved characters to make technical education memorable and engaging.
+
+**Important**: This project teaches npm *conceptually* through narrative and examples. Node.js/npm installation is NOT required to run or understand the tutorial - it's a Python-based Jupyter notebook that explains npm concepts.
 
 **Core Philosophy**: "Boring is the only unforgivable sin in education." This codebase prioritizes memorable, entertaining education over conventional technical writing.
 
@@ -110,9 +112,13 @@ No automated CI/CD pipelines are currently configured. Manual validation steps:
 
 2. **Validate Jupyter notebook** (if modified):
    ```bash
-   jupyter notebook --execute npm_tutorial_golden_girls.ipynb
+   jupyter nbconvert --execute --to notebook npm_tutorial_golden_girls.ipynb
    ```
    Ensure cells execute without errors (API calls may be commented out).
+   Alternatively, launch the notebook interactively and run cells manually:
+   ```bash
+   jupyter notebook npm_tutorial_golden_girls.ipynb
+   ```
 
 3. **Check Python syntax**:
    ```bash
