@@ -115,6 +115,7 @@ This repository houses **THE GOLDEN GIRLS PRESENT:  UNDERSTANDING NPM IN 2026** 
 - 🎯 Troubleshooting Tips (Sophia Style)
 - 🧠 Golden Girls Mini Quiz
 - 🎨 Stability AI integration for generating comic images
+- 🤖 **NEW!** AI-vision prompt refinement for better image quality
 - 💎 Full npm command reference
 - 🍰 Guaranteed cheesecake references
 
@@ -165,9 +166,74 @@ Follow along as the Golden Girls teach you:
 
 If you got that Stability AI key:  
 1. Enter it in the first code cell
-2. Uncomment the image generation function
-3. Run the cells to create comic-style Golden Girls teaching you npm!  
-4. Feel FABULOUS seeing Dorothy explain `package-lock.json`
+2. Uncomment the image generation functions
+3. **NEW!** Optionally set your OpenAI API key to enable AI-vision prompt refinement
+   - `export OPENAI_API_KEY='your-key-here'`
+   - Uncomment the `refine_prompt_with_ai_vision` function
+   - Use `refine_prompt=True` in your generate calls for enhanced prompts!
+4. Run the cells to create comic-style Golden Girls teaching you npm!  
+5. Feel FABULOUS seeing Dorothy explain `package-lock.json` with AI-refined imagery!
+
+---
+
+## 🤖 AI-Vision Prompt Refinement (NEW Feature!)
+
+**What is it?**  
+We've added an intelligent AI-vision step that automatically refines your Stability AI prompts for better image quality and consistency!
+
+**Why does it matter?**  
+- 🎯 **Better Images** - More detailed, higher quality outputs from Stability AI
+- 🎨 **Consistency** - Keeps Golden Girls characters looking like themselves
+- ✨ **Smart Enhancement** - Adds lighting, composition, and technical details automatically
+- 💅 **Professional Quality** - Makes your comic panels look AMAZING
+
+**How it works:**
+1. You provide a basic prompt (e.g., "Dorothy at a laptop")
+2. The AI-vision model analyzes and enhances it with:
+   - Specific lighting details
+   - Character expression refinement
+   - Color palette optimization
+   - Composition improvements
+   - Art style technical keywords
+3. The refined prompt goes to Stability AI for generation
+4. You get better images with less effort!
+
+**Example:**
+```python
+# Your simple prompt:
+"Comic-book style Dorothy at kitchen table"
+
+# AI-vision refined prompt:
+"Comic-book style illustration featuring Dorothy Zbornak seated at a sunlit 
+kitchen table in Miami, morning golden hour lighting streaming through windows, 
+her expressive face showing determined concentration, warm wood tones, 
+vintage 1980s kitchen aesthetic, detailed character rendering, vibrant colors, 
+professional comic panel composition, 4k quality"
+```
+
+**Setup:**
+```bash
+# Install requirements
+pip install openai requests
+
+# Set your API keys
+export OPENAI_API_KEY='your-openai-key'
+export STABILITY_API_KEY='your-stability-key'
+
+# In the notebook, uncomment both functions and use:
+generate_stability_image(
+    "Dorothy at laptop",
+    "images/dorothy.png",
+    refine_prompt=True,  # ← The magic flag!
+    context="Educational comic about npm"
+)
+```
+
+**Pro Tips:**
+- 🎯 Always use `refine_prompt=True` for best results
+- 📝 Add context to help the AI understand your scene better
+- 🎨 Compare refined vs. non-refined outputs - you'll see the difference!
+- 💡 The refinement adds ~$0.01-0.03 per image but the quality boost is worth it
 
 ---
 
@@ -261,11 +327,19 @@ Got ideas to make this even MORE sickening? WE WANT THEM!
 
 3. **Create the Images** 🎨
    - Generate the actual Stability AI images
+   - Use the NEW AI-vision prompt refinement for better quality
    - Add them to an `/images` folder
    - Update the notebook with real renders
    - Make it VISUAL
 
-4. **Extend the Universe** 🌍
+4. **Enhance the AI-Vision Refinement** 🤖
+   - Improve the prompt refinement algorithm
+   - Add more context-aware suggestions
+   - Fine-tune for Golden Girls character consistency
+   - Experiment with different AI models for refinement
+   - Share your refined prompts with the community!
+
+5. **Extend the Universe** 🌍
    - Git explained by Golden Girls?  
    - React hooks through retirement home drama?
    - TypeScript with sassy commentary?

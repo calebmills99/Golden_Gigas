@@ -1,0 +1,15 @@
+# Golden Gigas - Requirements
+# Dependencies for the Golden Girls npm Tutorial Jupyter Notebook
+
+# Core notebook functionality
+jupyter>=1.0.0
+
+# Image generation with Stability AI
+requests>=2.31.0
+
+# AI-vision prompt refinement (optional but recommended)
+openai>=1.0.0
+
+# For future enhancements
+# pillow>=10.0.0  # Image processing
+# matplotlib>=3.7.0  # Visualization
