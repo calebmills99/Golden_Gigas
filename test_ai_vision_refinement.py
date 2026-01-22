@@ -42,11 +42,15 @@ def mock_refine_prompt_with_ai_vision(original_prompt, context=""):
     return refined_prompt
 
 
-def mock_generate_stability_image(prompt, out_path, *, width=1024, height=1024, 
-                                  style_preset="comic-book", refine_prompt=False, context=""):
+def mock_generate_stability_image(prompt, out_path, *, aspect_ratio="1:1", 
+                                  style_preset="comic-book", model="sd3.5-large",
+                                  negative_prompt=None, cfg_scale=None,
+                                  output_format="png", seed=None,
+                                  refine_prompt=False, context=""):
     """
     Mock version of generate_stability_image for testing.
     Validates the refinement integration without API calls.
+    Updated to match the new API specification.
     """
     if refine_prompt:
         final_prompt = mock_refine_prompt_with_ai_vision(prompt, context)
@@ -56,7 +60,14 @@ def mock_generate_stability_image(prompt, out_path, *, width=1024, height=1024,
         print()
     
     print(f"✅ Would generate image at: {out_path}")
-    print(f"   Size: {width}x{height}, Style: {style_preset}")
+    print(f"   Model: {model}, Aspect Ratio: {aspect_ratio}")
+    print(f"   Style: {style_preset}, Format: {output_format}")
+    if negative_prompt:
+        print(f"   Negative prompt: {negative_prompt}")
+    if cfg_scale:
+        print(f"   CFG Scale: {cfg_scale}")
+    if seed:
+        print(f"   Seed: {seed}")
     
     return out_path
 
